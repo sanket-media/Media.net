@@ -3,8 +3,9 @@
 # enter the data and submit
 # update the flags
 # if all the elements are filled then wait the for the next page and then repeat the filling process or else proceed
+#page_url = "https://qa-v1.freesamplesprousa.com/?cid=qa-slug1&test=1"
 
-from selenium.webdriver.common.by import By
+from leadGen.resources import xpath as x
 from selenium.webdriver.common.by import By
 
 
@@ -24,9 +25,5 @@ def pii(d, w, details):
     }
 
     while False in flags.values():
-        elements = d.findElements(By.XPATH, "")
-
-
-
-
+        for i in range(len(x.pii)):
 
