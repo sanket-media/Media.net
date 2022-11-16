@@ -3,7 +3,7 @@ emailInput = "//input[@type='email' or @name='emailAddress']"
 fNameInput = "//input[@id='firstName']"
 lNameInput = "//input[@id='lastName']"
 mobileInput = "//input[@id='phoneNumber']"
-genderInput = "//input[@type='radio' and @value='" Male "']"
+genderInput = ("//input[@type='radio' and @value='", "']")
 maleRadio = "//input[@type='radio' and @value='Male']"
 femaleRadio = "//input[@type='radio' and @value='female']"
 zipBox = "//input[@id='zipcode']"
