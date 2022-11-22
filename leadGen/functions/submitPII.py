@@ -39,7 +39,7 @@ def pii(d, w, details):
 
     while False in flags.values():
         elementsNotPresent = []
-        w.until(ec.visibility_of_element_located((By.XPATH, x.submitBtn)))
+        submitBtn = w.until(ec.visibility_of_element_located((By.XPATH, x.submitBtn)))
         for i in flags:
             try:
                 if ~flags[i] and d.find_element(By.XPATH, x.pii[i]):
@@ -58,4 +58,4 @@ def pii(d, w, details):
             except:
                 elementsNotPresent += [i]
         print(elementsNotPresent)
-        d.find_element(By.XPATH, x.submitBtn).click()
+        submitBtn.click()
