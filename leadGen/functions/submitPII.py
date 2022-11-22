@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
-
 def pii(d, w, details):
     # flags = {
     #     "email": [False, "emailBox"],
@@ -37,7 +36,10 @@ def pii(d, w, details):
         "zip": False
     }
 
+    loopCount = 0
     while False in flags.values():
+        if loopCount >= 5:
+            raise Exception('Loop has been run for total 5 times')
         elementsNotPresent = []
         submitBtn = w.until(ec.visibility_of_element_located((By.XPATH, x.submitBtn)))
         for i in flags:
@@ -57,5 +59,6 @@ def pii(d, w, details):
                         flags[i] = True
             except:
                 elementsNotPresent += [i]
+
         print(elementsNotPresent)
         submitBtn.click()

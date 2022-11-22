@@ -21,8 +21,7 @@ details={
 }
 
 # site = "https://qa-v1.freesamplesprousa.com/?cid=qa-slug1&test=1&exp=Flow2-Duplicate-qa-v1-QA-Only"
-# site = "https://qa-v1.freesamplesprousa.com/?cid=qa-slug1&test=1"
-site = "https://freesamplesprousa.com/?cid=vn1ws&test=1"
+site = "https://qa-v1.freesamplesprousa.com/?cid=qa-slug1&test=1"
 d = webdriver.Chrome("D:\\chromedriver.exe")
 d.get(site)
 w = WebDriverWait(d, 20)
