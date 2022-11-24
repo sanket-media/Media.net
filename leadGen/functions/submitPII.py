@@ -1,7 +1,12 @@
+import time
+
+from selenium.webdriver.support.select import Select
+
 from leadGen.resources import xpaths as x
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+
 
 def pii(d, w, details):
     # flags = {
@@ -25,7 +30,7 @@ def pii(d, w, details):
         "email": False,
         "fname": False,
         "lname": False,
-        # "gender": False,
+        "gender": False,
         "phone": False,
         "doby": False,
         "dobm": False,
@@ -43,22 +48,28 @@ def pii(d, w, details):
         elementsNotPresent = []
         submitBtn = w.until(ec.visibility_of_element_located((By.XPATH, x.submitBtn)))
         for i in flags:
+            if i == 'gender':
+                locator = x.pii['gender'][0] + details['gender'] + x.pii['gender'][1]
+            else:
+                locator = x.pii[i]
             try:
-                if ~flags[i] and d.find_element(By.XPATH, x.pii[i]):
-                    element = d.find_element(By.XPATH, x.pii[i])
+                if ~flags[i] and d.find_element(By.XPATH, locator):
+                    element = d.find_element(By.XPATH, locator)
                     type = element.get_attribute("type")
                     if type in ['text', 'email', 'tel']:
                         element.clear()
                         element.send_keys(details[i])
                         flags[i] = True
                     elif type in ['select-one']:
-                        print('select')
+                        Select(element).select_by_value(details[i])
                         flags[i] = True
                     elif type in ['radio']:
-                        print('gender')
+                        element.click()
                         flags[i] = True
             except:
                 elementsNotPresent += [i]
 
-        print(elementsNotPresent)
+        print("Fields not on page" +(loopCount+1)+ " -> " + elementsNotPresent)
         submitBtn.click()
+        w.until(ec.url_changes())
+
