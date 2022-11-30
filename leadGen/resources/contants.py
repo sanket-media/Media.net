@@ -1,8 +1,9 @@
-userDetails = {
-    "email": "tasteyuri@gmail.com",
-    "fname": "Yuri",
-    "lname": "Charles",
-    "phone": 5048316789,
+
+ana = {
+    "email": "phamanathon@gmail.com",
+    "fname": "Anathon",
+    "lname": "Pham",
+    "phone": 61812743111,
     "zip": 89414,
     "address": "Access Road",
     "city": "Golconda",
