@@ -4,11 +4,3 @@
 #     values += [('verizon ' +str(i), 'verizon')]
 #
 # print (query + str(values) + ' ;')
-
-l = ["//input[@id='firstName']", "//input[@id='lastName']", "//input[@type='radio' and @value='Male']",
-       "//input[@id='phoneNumber']", "//select[@id='dbodateyear']", "//select[@id='dbodatemonth']",
-       "//select[@id='dbodateday']", "//input[@id='address']", "//input[@id='cityName']", "//select[@id='stateCode']",
-       "//input[@id='zipcode']"]
-
-a = [1]
-print(len(a))
