@@ -1,0 +1,28 @@
+PII:
+
+
+        for i in flags:
+            if not flags[i]:
+                if i == 'gender':
+                    locator = x.pii['gender'][0] + details['gender'] + x.pii['gender'][1]
+                else:
+                    locator = x.pii[i]
+                try:
+                    element = d.find_element(By.XPATH, locator)
+                    elementsFound += [i]
+                    type = element.get_attribute("type")
+                    if type in ['text', 'email', 'tel']:
+                        element.clear()
+                        element.send_keys(details[i])
+                        flags[i] = True
+                    elif type in ['select-one']:
+                        Select(element).select_by_value(details[i])
+                        flags[i] = True
+                    elif type in ['radio']:
+                        w.until(ec.element_to_be_clickable((By.XPATH, locator)))
+                        element.click()
+                        flags[i] = True
+                except Exception as e:
+                    print(e)
+                    locators += [locator]
+                    elementsNotPresent += [i]

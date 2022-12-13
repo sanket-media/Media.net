@@ -3,7 +3,7 @@ ana = {
     "fname": "Anathon",
     "lname": "Pham",
     "zip": 89414,
-    "gender": "Male",
+    "gender": "Female",
     "address": "Access Road",
     "city": "Golconda",
     "state": "NV",
@@ -13,4 +13,3 @@ ana = {
     "dobm": "11",
     "dobd": "18"
 }
-
