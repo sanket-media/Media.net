@@ -16,10 +16,10 @@ log = logging.getLogger()
 log.setLevel(logging.DEBUG)
 
 
-def initialize(driverPath, site, cookies=True, env='staging'):
+def initialize(driverPath, site, cookies=True):
     d = webdriver.Chrome(driverPath)
     # d.implicitly_wait(10)
-    w = WebDriverWait(d, 100)
+    w = WebDriverWait(d, 10)
     d.maximize_window()
     if cookies:
         d.delete_all_cookies()
