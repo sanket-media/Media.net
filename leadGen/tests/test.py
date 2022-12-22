@@ -14,7 +14,7 @@ import logging
 from datetime import datetime
 
 
-driverPath = 'D:\\chromedriver.exe'
+# driverPath = 'D:\\chromedriver.exe'
 # site = 'https://freesamplesprousa.com/?cid=vn1ws&test=1'
 # site = "https://qa-v1.freesamplesprousa.com/?cid=qa-slug1&test=1&exp=Flow2-Duplicate-qa-v1-QA-Only"
 # site = 'https://qa-v2.freesamplesprousa.com/?cid=qa-slug2&test=1'
@@ -27,6 +27,6 @@ driverPath = 'D:\\chromedriver.exe'
 # driver.delete_all_cookies()
 # driver.get(site)
 
-d,w = f.initialize(driverPath, e.fspu_qav1['site'])
+d,w = f.initialize(e.driverPath, e.fspu_live_full_tcpa['site'])
 f.submitPII(d,w,c.ana)
 

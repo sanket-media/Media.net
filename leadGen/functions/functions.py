@@ -10,10 +10,10 @@ from datetime import datetime
 import random
 import logging
 
-logging.basicConfig(filename=env.logFile,
-                    format='%(asctime)s: %(message)s')
-log = logging.getLogger()
-log.setLevel(logging.DEBUG)
+# logging.basicConfig(filename=env.logFile,
+#                     format='%(asctime)s: %(message)s')
+# log = logging.getLogger()
+# log.setLevel(logging.DEBUG)
 
 
 def initialize(driverPath, site, cookies=True):
@@ -106,5 +106,5 @@ def submitPII(d, w, details):
     print('PII Submitted')
 
 
-def answer(d, w,):
+def survey(d, w,):
     pass
